@@ -1,5 +1,10 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
+import React, { useState, useEffect } from 'react';
+// ... rest of your code
+
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import {
@@ -353,7 +358,7 @@ export default function AvilaTechERP() {
     setTimeout(() => setPosFeedback({ type: '', message: '' }), 3500);
   };
 
-
+//aqui hoy
 const [products, setProducts] = useState(() => {
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem('avilatech_products');
