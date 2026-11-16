@@ -17,6 +17,17 @@ import {
   RotateCcw
 } from 'lucide-react';
 
+
+
+const [products, setProducts] = useState(() => {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('avilatech_products');
+    if (saved) return JSON.parse(saved);
+  }
+  return []; // Default initial state for server/first render
+});
+
+
 const TRANSLATIONS = {
   en: {
     brandSubtitle: 'Inventory, Barcode POS & Operations',
