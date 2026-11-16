@@ -19,14 +19,6 @@ import {
 
 
 
-const [products, setProducts] = useState(() => {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('avilatech_products');
-    if (saved) return JSON.parse(saved);
-  }
-  return []; // Default initial state for server/first render
-});
-
 
 const TRANSLATIONS = {
   en: {
@@ -360,6 +352,16 @@ export default function AvilaTechERP() {
     setPosFeedback({ type: 'success', message: t.pos.saleSuccess });
     setTimeout(() => setPosFeedback({ type: '', message: '' }), 3500);
   };
+
+
+const [products, setProducts] = useState(() => {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('avilatech_products');
+    if (saved) return JSON.parse(saved);
+  }
+  return []; // Default initial state for server/first render
+});
+
 
   // Reset Local Demo Storage
   const handleResetDemo = () => {
